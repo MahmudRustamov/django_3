@@ -5,6 +5,9 @@
 <link rel="stylesheet" href="{% static 'libs/slick-slider/css/slick.css' %}">
 <link rel="stylesheet" href="{% static 'libs/slick-slider/css/slick-theme.css' %}">
 {% endblock %}
+{% block extra_js %}
+    <script src="{% static 'libs/slick-slider/js/slick.min.js' %}"></script>
+{% endblock %}
 {% block home_id %}
 home3
 {% endblock %}
@@ -2104,7 +2107,4 @@ home3
             </div>
         </div>
     </div>
-{% endblock %}
-{% block extra_js %}
-    <script src="{% static 'libs/slick-slider/js/slick.min.js' %}"></script>
 {% endblock %}
