@@ -1,8 +1,14 @@
 {% extends 'layout/base.html' %}
 {% load static %}
+{% block title %}Home{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'libs/slick-slider/css/slick.css' %}">
+<link rel="stylesheet" href="{% static 'libs/slick-slider/css/slick-theme.css' %}">
+{% endblock %}
 {% block home_id %}
 home3
 {% endblock %}
+
 {% block content %}
     <div class="main-content">
         <div class="wrap-banner">
@@ -2098,4 +2104,7 @@ home3
             </div>
         </div>
     </div>
+{% endblock %}
+{% block extra_js %}
+    <script src="{% static 'libs/slick-slider/js/slick.min.js' %}"></script>
 {% endblock %}

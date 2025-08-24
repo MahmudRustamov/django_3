@@ -38,16 +38,24 @@
     <!-- Template CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/reponsive.css' %}">
+    {% block extra_css %}{% endblock %}
 </head>
 
 <body id="{% block home_id %}{% endblock %}" class="blog">
-    {% include 'layout/header-base.html' %}
-
+    {% url 'pages:home' as home_url %}
+    {% if request.path == home_url %}
+        {% include 'layout/header-home.html' %}
+    {% else %}
+        {% include 'layout/header-base.html' %}
+    {% endif %}
 
     {% block content %}{% endblock %}
 
-
-    {% include 'layout/footer-base.html' %}
+    {% if request.path == home_url %}
+        {% include 'layout/footer-home.html' %}
+    {% else %}
+        {% include 'layout/footer-base.html' %}
+    {% endif %}
 
     <!-- back top top -->
     <div class="back-to-top">
@@ -81,7 +89,8 @@
     <script src="{% static 'libs/slider-range/js/jquery.slider.js' %}"></script>
 
     <!-- Template JS -->
-    <script src="{%  static 'js/theme.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+    {% block extra_js %}{% endblock %}
 </body>
 
 
